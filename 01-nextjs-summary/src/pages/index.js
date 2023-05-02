@@ -21,7 +21,7 @@ const DUMMY_MEETUPS = [
   }
 ];
 
-export default function Home() {
+export default function Home(props) {
   return (
     <>
       <Head>
@@ -31,8 +31,17 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={`${inter.className}`}>
-        <MeetupList meetups={DUMMY_MEETUPS} />
+        <MeetupList meetups={props.meetups} />
       </main>
     </>
   )
+}
+
+export async function getStaticProps() {
+  // fetch data from an API
+  return {
+    props: {
+      meetups: DUMMY_MEETUPS
+    }
+  }; 
 }
