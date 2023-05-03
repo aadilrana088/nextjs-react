@@ -44,15 +44,35 @@ export default function Home(props) {
     );
 }
 
-export async function getServerSideProps() {
-    // Fetch data from external API
+// export async function getServerSideProps() {
+//     // Fetch data from external API
+//     const client = await MongoClient.connect(process.env.MONGO_URL);
+//     const db = client.db();
+
+//     const meetupsCollection = db.collection('meetups');
+//     const meetups = await meetupsCollection.find().toArray();
+//     client.close();
+//     // Pass data to the page via props
+//     return {
+//         props: {
+//             meetups: meetups.map((meetup) => ({
+//                 title: meetup.title,
+//                 address: meetup.address,
+//                 image: meetup.image,
+//                 id: meetup._id.toString(),
+//             })),
+//         },
+//     };
+// }
+
+export async function getStaticProps() {
+    // fetch data from an API
     const client = await MongoClient.connect(process.env.MONGO_URL);
     const db = client.db();
 
     const meetupsCollection = db.collection('meetups');
     const meetups = await meetupsCollection.find().toArray();
     client.close();
-    // Pass data to the page via props
     return {
         props: {
             meetups: meetups.map((meetup) => ({
@@ -62,14 +82,6 @@ export async function getServerSideProps() {
                 id: meetup._id.toString(),
             })),
         },
+        revalidate: 1,
     };
 }
-
-// export async function getStaticProps() {
-//   // fetch data from an API
-//   return {
-//     props: {
-//       meetups: DUMMY_MEETUPS
-//     }
-//   };
-// }
