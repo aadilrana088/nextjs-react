@@ -21,7 +21,9 @@ export default function Home(props) {
             </Head>
             <main className={`${inter.className}`}>
                 {products.map((product) => (
-                    <Link href={product.id} key={product.id}>{product.title}</Link>
+                    <li key={product.id}>
+                        <Link href={product.id}>{product.title}</Link>
+                    </li>
                 ))}
             </main>
         </>
@@ -35,15 +37,15 @@ export async function getStaticProps(context) {
     const data = JSON.parse(jsonData);
 
     if (!data) {
-      return {
-        redirect: {
-          destination: '/no-data'
-        }
-      }
+        return {
+            redirect: {
+                destination: '/no-data',
+            },
+        };
     }
-  
+
     if (data.products.length === 0) {
-      return { notFound: true };
+        return { notFound: true };
     }
 
     return {
