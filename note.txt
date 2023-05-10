@@ -7,3 +7,7 @@ https://www.udemy.com/course/nextjs-react-the-complete-guide/learn/lecture/25145
 Section 5: Page Pre-Rendering & Data Fetching
 117. Module Resources => Mon May 08 2023 14:33:50 GMT+0530 (India Standard Time)
 https://www.udemy.com/course/nextjs-react-the-complete-guide/learn/lecture/25145798#overview
+
+Section 7: Optimizing NextJS Apps
+140. Module Resources => Wed May 10 2023 19:13:17 GMT+0530 (India Standard Time)
+https://www.udemy.com/course/nextjs-react-the-complete-guide/learn/lecture/25145916#overview
