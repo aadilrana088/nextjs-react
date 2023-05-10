@@ -3,7 +3,12 @@ import EventLogistics from '@/components/event-detail/event-logistics';
 import EventSummary from '@/components/event-detail/event-summary';
 import ErrorAlert from '@/components/ui/error-alert';
 // import { getAllEvents, getEventById } from 'dummy-data';
-import { getAllEvents, getEventById, getFeaturedEvents } from 'helpers/api-util';
+import {
+    getAllEvents,
+    getEventById,
+    getFeaturedEvents,
+} from 'helpers/api-util';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 function EventDetailPage(props) {
@@ -27,6 +32,10 @@ function EventDetailPage(props) {
 
     return (
         <>
+            <Head>
+                <title>{event.title}</title>
+                <meta name="description" content={event.description} />
+            </Head>
             <EventSummary title={event.title} />
             <EventLogistics
                 date={event.date}
@@ -42,7 +51,6 @@ function EventDetailPage(props) {
 }
 
 export default EventDetailPage;
-
 
 export async function getStaticPaths() {
     const events = await getFeaturedEvents();
