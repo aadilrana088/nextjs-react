@@ -9,10 +9,10 @@ async function handler(req, res) {
         }
 
         const client = await MongoClient.connect(process.env.MONGO_URL);
-        const db = client.db();
+        const db = client.db("newsletter");
         await db.collection('emails').insertOne({ email: userEmail });
         client.close();
-        
+
         res.status(201).json({ message: 'Signed Up!' });
     }
 }
