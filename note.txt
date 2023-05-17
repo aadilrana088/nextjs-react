@@ -15,3 +15,7 @@ https://www.udemy.com/course/nextjs-react-the-complete-guide/learn/lecture/25145
 Section 8: Adding Backend Code with API Routes (Fullstack React)
 152. Module Resources => Fri May 12 2023 20:24:10 GMT+0530 (India Standard Time)
 https://www.udemy.com/course/nextjs-react-the-complete-guide/learn/lecture/25145986#overview
+
+Section 9: Project Time: API Routes
+167. Module Resources => Wed May 17 2023 23:53:43 GMT+0530 (India Standard Time)
+https://www.udemy.com/course/nextjs-react-the-complete-guide/learn/lecture/25146066#overview
