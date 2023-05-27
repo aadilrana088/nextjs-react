@@ -16,7 +16,7 @@ function PostContent(props) {
     const imagePath = `/images/posts/${post.slug}/${post.image}`;
 
     const customRenderers = {
-        // image(image) {
+        // img(image) {
         //   return (
         //     <Image
         //       src={`/images/posts/${post.slug}/${image.src}`}
@@ -28,14 +28,13 @@ function PostContent(props) {
         // },
         p(paragraph) {
             const { node } = paragraph;
-            console.log('Node: ' + node);
-            if (node.children[0].type === 'image') {
+            if (node.children[0].tagName === 'img') {
                 const image = node.children[0];
                 console.log(image);
                 return (
                     <div className={classes.image}>
                         <Image
-                            src={`/images/posts/${post.slug}/${image.url}`}
+                            src={`/images/posts/${post.slug}/${image.properties.src}`}
                             alt={image.alt}
                             width={600}
                             height={300}
@@ -52,23 +51,7 @@ function PostContent(props) {
         <article className={classes.content}>
             <PostHeader title={post.title} image={imagePath} />
             <ReactMarkdown
-                components={{
-                    img: function ({ ...props }) {
-                        const substrings = props.alt?.split('{{');
-                        const alt = substrings[0].trim();
-
-                        return (
-                            <div className={classes.image}>
-                                <Image
-                                    src={`/images/posts/${post.slug}/${props.src}`}
-                                    alt={alt}
-                                    width={600}
-                                    height={300}
-                                />
-                            </div>
-                        );
-                    },
-                }}
+                components={customRenderers}
             >
                 {post.content}
             </ReactMarkdown>
