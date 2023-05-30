@@ -23,8 +23,10 @@ export async function POST(request) {
 
     let client;
 
+    const connectionString = `mongodb+srv://${process.env.mongodb_username}:${process.env.mongodb_password}@${process.env.mongodb_clustername}.we2lvnf.mongodb.net/${process.env.mongodb_database}?retryWrites=true&w=majority`;
+
     try {
-        client = await MongoClient.connect(process.env.MONGO_URL);
+        client = await MongoClient.connect(connectionString);
     } catch (error) {
         NextResponse.json(
             { message: 'Could not connect to database.' },
