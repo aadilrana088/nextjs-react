@@ -11,6 +11,12 @@ import { getAllPosts } from '../../../lib/posts-util.js';
 //         date: '2022-02-10',
 //     },
 // ];
+
+export const metadata = {
+    title: 'All Posts',
+    description: 'A list of all programming-related tutorials and posts!',
+};
+
 async function getData() {
     const allPosts = getAllPosts();
 
@@ -21,7 +27,5 @@ async function AllPostsPage() {
     const allPosts = await getData();
     return <AllPosts posts={allPosts} />;
 }
-
-
 
 export default AllPostsPage;

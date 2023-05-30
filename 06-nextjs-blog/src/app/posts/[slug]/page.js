@@ -18,6 +18,18 @@ async function getData(params) {
     return featuredPosts;
 }
 
+export async function generateMetadata({ params, searchParams }, parent) {
+
+    // fetch data
+    const featuredPosts = getPostData(params.slug);
+
+    return {
+        title: featuredPosts.title,
+        description: featuredPosts.excerpt,
+    };
+}
+
+
 async function PostDetailPage({ params }) {
     const post = await getData(params);
     return <PostContent post={post} />;

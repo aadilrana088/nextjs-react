@@ -13,6 +13,13 @@ import { getFeaturedPosts } from "../../lib/posts-util";
 //   },
 // ];
 
+export const metadata = {
+  title: 'Rana Blog',
+  description: 'I post about programming and web development.',
+};
+
+
+
 async function getData() {
   const featuredPosts = getFeaturedPosts();
 
