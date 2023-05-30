@@ -19,3 +19,11 @@ https://www.udemy.com/course/nextjs-react-the-complete-guide/learn/lecture/25145
 Section 9: Project Time: API Routes
 167. Module Resources => Wed May 17 2023 23:53:43 GMT+0530 (India Standard Time)
 https://www.udemy.com/course/nextjs-react-the-complete-guide/learn/lecture/25146066#overview
+
+Section 10: Working with App-wide State (React Context)
+177. Module Resources => Thu May 18 2023 21:23:56 GMT+0530 (India Standard Time)
+https://www.udemy.com/course/nextjs-react-the-complete-guide/learn/lecture/25146158#overview
+
+Section 11: Complete App Example: Build a Full Blog A to Z
+206. Module Resources => Tue May 30 2023 21:12:48 GMT+0530 (India Standard Time)
+https://www.udemy.com/course/nextjs-react-the-complete-guide/learn/lecture/25146314#overview
