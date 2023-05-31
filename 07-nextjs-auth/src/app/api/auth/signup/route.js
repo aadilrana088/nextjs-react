@@ -10,47 +10,52 @@ export async function POST(request) {
         !password ||
         password.trim().length < 7
     ) {
-        NextResponse.json(
+        return NextResponse.json(
             {
                 message:
                     'Invalid input - password should also be at least 7 characters long.',
             },
             { status: 422 }
         );
-        return;
     }
-
-    
 
     let client;
 
     try {
         client = await connectToDatabase();
     } catch (error) {
-        NextResponse.json(
+        return NextResponse.json(
             { message: 'Could not connect to database.' },
             { status: 500 }
         );
-        return;
     }
 
     const db = client.db();
 
+    const existingUser = await db.collection('users').findOne({ email: email });
+
+    if (existingUser) {
+        client.close();
+        return NextResponse.json(
+            { message: 'User exists already!' },
+            { status: 422 }
+        );
+    }
+
     const hashedPassword = await hashPassword(password);
     const newUsers = {
         email: email,
-        password: hashedPassword
-    }
+        password: hashedPassword,
+    };
     try {
         const result = await db.collection('users').insertOne(newUsers);
         newUsers.id = result.insertedId;
     } catch (error) {
         client.close();
-        NextResponse.json(
+        return NextResponse.json(
             { message: 'Storing message failed!' },
             { status: 500 }
         );
-        return;
     }
 
     client.close();
