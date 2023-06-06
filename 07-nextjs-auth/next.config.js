@@ -12,6 +12,7 @@ module.exports = (phase) => {
                 mongodb_password: 'admin',
                 mongodb_clustername: 'cluster0',
                 mongodb_database: 'auth-demo-dev',
+                NEXTAUTH_SECRET: "codingwithaadil",
             },
         };
     }
@@ -22,6 +23,7 @@ module.exports = (phase) => {
             mongodb_password: 'admin',
             mongodb_clustername: 'cluster0',
             mongodb_database: 'auth-demo',
+            NEXTAUTH_SECRET: "codingwithaadil",
         },
     };
 };
