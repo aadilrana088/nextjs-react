@@ -27,3 +27,7 @@ https://www.udemy.com/course/nextjs-react-the-complete-guide/learn/lecture/25146
 Section 11: Complete App Example: Build a Full Blog A to Z
 206. Module Resources => Tue May 30 2023 21:12:48 GMT+0530 (India Standard Time)
 https://www.udemy.com/course/nextjs-react-the-complete-guide/learn/lecture/25146314#overview
+
+Section 13: Adding Authentication
+240. Module Resources => Tue Jun 06 2023 22:50:46 GMT+0530 (India Standard Time)
+https://www.udemy.com/course/nextjs-react-the-complete-guide/learn/lecture/25146486#overview
