@@ -7,7 +7,7 @@ function logoutHandler() {
     signOut();
 }
 function MainNavigation() {
-    const { data: session, status: loading } = useSession();
+    const { data: session } = useSession();
     return (
         <header className={classes.header}>
             <Link href="/">
@@ -15,7 +15,7 @@ function MainNavigation() {
             </Link>
             <nav>
                 <ul>
-                    {!session && !loading && (
+                    {!session && (
                         <li>
                             <Link href="/auth">Login</Link>
                         </li>

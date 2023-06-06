@@ -1,18 +1,18 @@
-import NextAuth from 'next-auth';
+import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { connectToDatabase } from '../../../../../lib/db';
-import { verifyPassword } from '../../../../../lib/auth';
+import { connectToDatabase } from "../../../../../lib/db";
+import { verifyPassword } from "../../../../../lib/auth";
 
 const handler = NextAuth({
     session: {
-        strategy: 'jwt',
+        strategy: "jwt",
     },
     providers: [
         CredentialsProvider({
             async authorize(credentials) {
                 const client = await connectToDatabase();
 
-                const usersCollection = client.db().collection('users');
+                const usersCollection = client.db().collection("users");
 
                 const user = await usersCollection.findOne({
                     email: credentials.email,
@@ -20,7 +20,7 @@ const handler = NextAuth({
 
                 if (!user) {
                     client.close();
-                    throw new Error('No user found!');
+                    throw new Error("No user found!");
                 }
 
                 const isValid = await verifyPassword(
@@ -30,7 +30,7 @@ const handler = NextAuth({
 
                 if (!isValid) {
                     client.close();
-                    throw new Error('Could not log you in!');
+                    throw new Error("Could not log you in!");
                 }
 
                 client.close();
@@ -39,6 +39,9 @@ const handler = NextAuth({
             },
         }),
     ],
+    pages: {
+        signIn: "/login",
+    },
 });
 
-export { handler as GET, handler as POST }
+export { handler as GET, handler as POST };

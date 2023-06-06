@@ -1,7 +1,4 @@
-import { getSession } from 'next-auth/react';
-import { redirect } from 'next/navigation';
 import UserProfile from '../../../components/profile/user-profile';
-import { NextRequest } from 'next/server';
 
 async function ProfilePage() {
     // const request = NextRequest.next();
